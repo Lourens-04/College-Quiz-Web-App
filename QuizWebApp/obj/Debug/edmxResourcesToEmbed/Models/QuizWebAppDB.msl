@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SchoolApplicationAppModelStoreContainer" CdmEntityContainer="SchoolApplicationAppEntities">
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="SchoolApplicationAppModel.Course">
+        <MappingFragment StoreEntitySet="Course">
+          <ScalarProperty Name="Course_ID" ColumnName="Course_ID" />
+          <ScalarProperty Name="CourseCode" ColumnName="CourseCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Course_Module">
+      <EntityTypeMapping TypeName="SchoolApplicationAppModel.Course_Module">
+        <MappingFragment StoreEntitySet="Course_Module">
+          <ScalarProperty Name="CM_ID" ColumnName="CM_ID" />
+          <ScalarProperty Name="Course_ID" ColumnName="Course_ID" />
+          <ScalarProperty Name="Module_ID" ColumnName="Module_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lecture_Module">
+      <EntityTypeMapping TypeName="SchoolApplicationAppModel.Lecture_Module">
+        <MappingFragment StoreEntitySet="Lecture_Module">
+          <ScalarProperty Name="LM_ID" ColumnName="LM_ID" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="Module_ID" ColumnName="Module_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Modules">
+      <EntityTypeMapping TypeName="SchoolApplicationAppModel.Module">
+        <MappingFragment StoreEntitySet="Module">
+          <ScalarProperty Name="Module_ID" ColumnName="Module_ID" />
+          <ScalarProperty Name="ModuleCode" ColumnName="ModuleCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Questions">
+      <EntityTypeMapping TypeName="SchoolApplicationAppModel.Question">
+        <MappingFragment StoreEntitySet="Question">
+          <ScalarProperty Name="Question_ID" ColumnName="Question_ID" />
+          <ScalarProperty Name="Test_ID" ColumnName="Test_ID" />
+          <ScalarProperty Name="TestQuestion" ColumnName="TestQuestion" />
+          <ScalarProperty Name="QA" ColumnName="QA" />
+          <ScalarProperty Name="QB" ColumnName="QB" />
+          <ScalarProperty Name="QC" ColumnName="QC" />
+          <ScalarProperty Name="QAns" ColumnName="QAns" />
+          <ScalarProperty Name="QMark" ColumnName="QMark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Results">
+      <EntityTypeMapping TypeName="SchoolApplicationAppModel.Result">
+        <MappingFragment StoreEntitySet="Result">
+          <ScalarProperty Name="Result_ID" ColumnName="Result_ID" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="Test_ID" ColumnName="Test_ID" />
+          <ScalarProperty Name="UserAns" ColumnName="UserAns" />
+          <ScalarProperty Name="UserMark" ColumnName="UserMark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tests">
+      <EntityTypeMapping TypeName="SchoolApplicationAppModel.Test">
+        <MappingFragment StoreEntitySet="Test">
+          <ScalarProperty Name="Test_ID" ColumnName="Test_ID" />
+          <ScalarProperty Name="Module_ID" ColumnName="Module_ID" />
+          <ScalarProperty Name="TestTitle" ColumnName="TestTitle" />
+          <ScalarProperty Name="TestDesc" ColumnName="TestDesc" />
+          <ScalarProperty Name="TestTotal" ColumnName="TestTotal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="SchoolApplicationAppModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Course">
+      <EntityTypeMapping TypeName="SchoolApplicationAppModel.User_Course">
+        <MappingFragment StoreEntitySet="User_Course">
+          <ScalarProperty Name="UC_ID" ColumnName="UC_ID" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="Course_ID" ColumnName="Course_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="database_firewall_rules">
+      <EntityTypeMapping TypeName="SchoolApplicationAppModel.database_firewall_rules">
+        <MappingFragment StoreEntitySet="database_firewall_rules">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="start_ip_address" ColumnName="start_ip_address" />
+          <ScalarProperty Name="end_ip_address" ColumnName="end_ip_address" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="modify_date" ColumnName="modify_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,89 @@
+﻿@model IEnumerable<string>
+
+@{
+    ViewBag.Title = "AllTestCreated";
+}
+
+<h2>All Test Created</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateTest", null, new { @style = "color:#D25E5A;" })
+</p>
+
+
+
+<table class="table">
+    <!-- Display headings -->
+    <!-- ------------------------------------------------------------------- -->
+    <tr>
+        <th>
+            Lucture ID
+        </th>
+        <th>
+            Test ID
+        </th>
+        <th>
+            Test Title
+        </th>
+        <th>
+            Test Description
+        </th>
+        <th>
+            Test Total
+        </th>
+        <th>
+            Module Code
+        </th>
+        <th>
+
+        </th>
+    </tr>
+    <!-- ------------------------------------------------------------------- -->
+
+    @foreach (var item in Model)
+    {
+        <!-- Display data of test created -->
+        <!-- ------------------------------------------------------------------- -->
+        string userID = Session["User"].ToString();
+        string[] testsDetails = item.Split('&');
+
+        string testID = testsDetails[0];
+        string testTitle = testsDetails[1];
+        string[] testDescStatus = testsDetails[2].Split(',');
+        string testDesc = testDescStatus[0];
+        string testTotal = testsDetails[3];
+        string testModuleCode = testsDetails[4];
+
+        <tr>
+            <td>
+                @Html.DisplayName(userID)
+            </td>
+
+            <td>
+                @Html.DisplayName(testID)
+            </td>
+
+            <td>
+                @Html.DisplayName(testTitle)
+            </td>
+
+            <td>
+                @Html.DisplayName(testDesc.Replace('.', ' '))
+            </td>
+
+            <td>
+                @Html.DisplayName(testTotal)
+            </td>
+
+            <td>
+                @Html.DisplayName(testModuleCode)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit Test", "EditTest", new { id = Convert.ToInt32(testID) }, new { @style = "color:#D25E5A;" })
+            </td>
+        </tr>
+        <!-- ------------------------------------------------------------------- -->
+    }
+
+</table>

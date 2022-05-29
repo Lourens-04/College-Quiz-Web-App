@@ -1,0 +1,166 @@
+﻿@model IEnumerable<string>
+
+@{
+    ViewBag.Title = "TestMemo";
+}
+
+@{
+    string user = Session["User"].ToString();
+    <h2 style="text-align:center"> @Html.DisplayName(user + " Test Memo") </h2>
+}
+
+<!-- Displaying the entire memo for a test -->
+<!-- -------------------------------------------------------------------------------------------------------------------------- -->
+@{
+    string[] memo;
+    string testTitle;
+    string testDesc;
+    string testTotal;
+    string userMark;
+    string module;
+    string course;
+    string questionNum;
+    string question;
+    string qA;
+    string qB;
+    string qC;
+    string qAns;
+    string userAns;
+    string QMark;
+    string mark;
+
+    foreach (var item in Model)
+    {
+        memo = item.Split('&');
+        testTitle = memo[0];
+        testDesc = memo[1];
+        testTotal = memo[5];
+        userMark = memo[4];
+        module = memo[3];
+        course = memo[2];
+
+        <dl style="font-size:22px; text-align:center">
+            <dt>
+                &emsp;
+            </dt>
+
+            <dt>
+                &emsp;
+            </dt>
+
+            <dt>
+                @Html.Label("Test Title : " + testTitle) 
+            </dt>
+
+            <dt>
+                &emsp;&emsp;
+            </dt>
+
+            <dt>
+                @Html.DisplayName("Test Description : " + testDesc.Replace('.',' '))
+            </dt>
+
+            <dt>
+                &emsp;&emsp;
+            </dt>
+
+            <dt>
+                @Html.DisplayName("Course : " + course) &emsp;&emsp; @Html.DisplayName("Module : " + module) &emsp;&emsp; @Html.DisplayName("Your Mark : " + userMark) &emsp;&emsp; @Html.DisplayName("Test Total : " + testTotal)
+            </dt>
+
+            <dt>
+                &emsp;
+            </dt>
+
+            <dt>
+                &emsp;
+            </dt>
+
+            <dt>
+                &emsp;
+            </dt>
+        </dl>
+
+        break;
+    }
+
+    int i = 0;
+    foreach (var item in Model)
+    {
+        if (i != 0)
+        {
+            memo = item.Split('&');
+            questionNum = memo[0];
+            question = memo[1];
+            qA = memo[2];
+            qB = memo[3];
+            qC = memo[4];
+            qAns = memo[5];
+            userAns = memo[6];
+            QMark = memo[7];
+            mark = memo[8];
+
+            <dl style="font-size:18px">
+                <dt style="font-size:22px">
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; @Html.DisplayName("Q " + questionNum + ") " + question)
+                </dt>
+
+                <dt>
+                    &emsp;
+                </dt>
+
+                <dt>
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; @Html.DisplayName("Option A : " + qA)
+                </dt>
+
+                <dt>
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; @Html.DisplayName("Option B : " + qB)
+                </dt>
+
+                <dt>
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; @Html.DisplayName("Option C : " + qC)
+                </dt>
+
+                <dt>
+                    &emsp;
+                </dt>
+
+                <dt>
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; @Html.DisplayName("Question Answer : " + qAns) &emsp;&emsp; @Html.DisplayName("Your Answer : " + userAns)
+                </dt>
+
+                <dt>
+                    &emsp;
+                </dt>
+
+                <dt>
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; @Html.DisplayName("Question mark : " + QMark)  &emsp;&emsp;&emsp;&nbsp;&nbsp;  @Html.DisplayName("Your Mark : " + mark)
+                </dt>
+
+                <dt>
+                    &emsp;
+                </dt>
+
+                <dt>
+                    &emsp;
+                </dt>
+
+                <dt>
+                    &emsp;
+                </dt>
+            </dl>
+        }
+        i++;
+    }
+}
+<!-- -------------------------------------------------------------------------------------------------------------------------- -->
+
+<td>
+    @Html.ActionLink("Back to all test", "AllTests", null, new { @style = "color:#D25E5A; font-size:18px" })
+</td>
+
+
+
+
+
+

@@ -1,0 +1,89 @@
+﻿@model IEnumerable<QuizWebApp.Models.Result>
+
+@{
+    ViewBag.Title = "AllTests";
+}
+
+<h2>All Completed Tests</h2>
+
+<table class="table">
+
+    <!-- Display headings -->
+    <!-- ------------------------------------------------------------------- -->
+    <tr>
+        <th>
+            Student Number
+        </th>
+        <th>
+            Test ID
+        </th>
+        <th>
+            Test Title
+        </th>
+        <th>
+            Test Description
+        </th>
+        <th>
+            Your Mark
+        </th>
+        <th>
+            Test Total
+        </th>
+        <th>
+            Module Code
+        </th>
+        <th>
+
+        </th>
+    </tr>
+    <!-- ------------------------------------------------------------------- -->
+
+    @foreach (var item in Model)
+    {
+        <!-- Display information on all the test they have taken -->
+        <!-- ------------------------------------------------------------------- -->
+        string userID = Session["User"].ToString();
+        string[] desc = item.Test.TestDesc.Split(',');
+
+        if (item.User_ID.ToString().Equals(userID))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayName(item.User.User_ID.ToString())
+                </td>
+
+                <td>
+                    @Html.DisplayName(item.Test_ID.ToString())
+                </td>
+
+                <td>
+                    @Html.DisplayName(item.Test.TestTitle.ToString())
+                </td>
+
+                <td>
+                    @Html.DisplayName(desc[0].Replace('.', ' '))
+                </td>
+
+                <td>
+                    @Html.DisplayName(item.UserMark.ToString())
+                </td>
+
+                <td>
+                    @Html.DisplayName(item.Test.TestTotal.ToString())
+                </td>
+
+                <td>
+                    @Html.DisplayName(item.Test.Module.ModuleCode.ToString())
+                </td>
+
+                <td>
+                    @Html.ActionLink("View Momo", "TestMemo", new { id = item.Test_ID }, new { @style = "color:#D25E5A;" })
+                </td>
+            </tr>
+            <!-- ------------------------------------------------------------------- -->
+        }
+    }
+
+</table>
+
+
